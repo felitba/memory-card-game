@@ -46,3 +46,13 @@ h1{
 label{
     font-size: 1.25rem;
 }
+
+.Header{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Header-title{
+    padding: 20px;
+}
