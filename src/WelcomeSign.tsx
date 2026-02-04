@@ -1,8 +1,10 @@
 import './styles.css'
 
-function WelcomeSign(){
+type WelcomeSignProps = {
+    handleClick: () => void;
+};
 
-    const handleClick = ()=> { }
+function WelcomeSign({handleClick}:WelcomeSignProps){
 
     return (
         <div className='WelcomeSign'>
