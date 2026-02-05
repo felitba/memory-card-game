@@ -18,18 +18,14 @@ function CardList(){
 
    useEffect(() => {
         const loadGifs = async () => {
-            const data = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=frog-fric&limit=10`)
+            await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=frog-fric&limit=10`)
             .then(res=> res.json())
-            .then(data=> data.data);
-
-        setGifs(data); 
+            .then(data=> setGifs(data.data));
   };
-
         loadGifs();
 }, []);
 
     const cardItems = gifs.map(gif=>{
-        // return <Card key={gif.id} receivedGif={gif}/>
         return <Card receivedGif={gif}/>
     })
 
