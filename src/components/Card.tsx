@@ -15,9 +15,9 @@ type Gif = {
 function Card({ receivedGif,handleClick }: CardProps) {
 
     return(
-        <>
+        <div className="card">
             <img src={receivedGif.images.fixed_height.url} alt="gif" onClick={handleClick} />
-        </>
+        </div>
     );
 }
 

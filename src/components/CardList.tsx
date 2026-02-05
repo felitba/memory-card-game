@@ -1,8 +1,10 @@
 import Header from "./Header";
 import Card from "./Card";
+import "../styles/styles.css"
 
 import { useState,useEffect,useRef } from "react";
 import { shuffle } from "../utils/shuffle";
+
 
 type Gif = {
   id: string;
@@ -20,7 +22,7 @@ type GiphyResponse = {
 
 function CardList(){
 
-    const API_KEY = "2u23y0WAD7WHXY7dvSCdehA6sy8cSRA3"
+    const API_KEY = "2u23y0WAD7WHXY7dvSCdehA6sy8cSRA3";
     const [gifs, setGifs] = useState<Gif[]>([]);
     const [score, setScore] = useState<number>(0);
     const [bestScore, setBestScore] = useState<number>(0);
@@ -60,7 +62,7 @@ function CardList(){
     return (
         <>
         <Header score={score} bestScore={bestScore}/>
-        <div>
+        <div className="card-list">
             {cardItems}
         </div>
         </>
