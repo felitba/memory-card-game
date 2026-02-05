@@ -1,7 +1,7 @@
 import Header from "./Header";
 import { useState,useEffect } from "react";
 import Card from "./Card";
-
+import { shuffle } from "../utils/shuffle";
 type Gif = {
   id: string;
   images: {
@@ -25,8 +25,10 @@ function CardList(){
         loadGifs();
 }, []);
 
+    const handleClick= ()=> {setGifs(shuffle(gifs))};
+
     const cardItems = gifs.map(gif=>{
-        return <Card receivedGif={gif}/>
+        return <Card key = {gif.id} receivedGif={gif} handleClick = {handleClick}/>
     })
 
     return (

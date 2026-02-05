@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import WelcomeSign from "./WelcomeSign"
-import CardList from './CardList';
-import './styles.css'
+import WelcomeSign from "./components/WelcomeSign"
+import CardList from './components/CardList';
+import "./styles/styles.css"
 
 function App() {
 

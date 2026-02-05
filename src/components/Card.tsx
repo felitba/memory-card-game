@@ -1,7 +1,6 @@
-
-
 type CardProps = {
   receivedGif: Gif;
+  handleClick: ()=> void;
 };
 
 type Gif = {
@@ -13,11 +12,11 @@ type Gif = {
   };
 };
 
-function Card({ receivedGif }: CardProps) {
+function Card({ receivedGif,handleClick }: CardProps) {
 
     return(
         <>
-            <img src={receivedGif.images.fixed_height.url} alt="gif" />
+            <img src={receivedGif.images.fixed_height.url} alt="gif" onClick={handleClick} />
         </>
     );
 }
