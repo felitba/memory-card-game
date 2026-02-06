@@ -8,6 +8,7 @@ import { shuffle } from "../utils/shuffle";
 
 type Gif = {
   id: string;
+  title: string;
   images: {
     fixed_height: {
       url: string;
@@ -30,7 +31,7 @@ function CardList(){
 
    useEffect(() => {
         const loadGifs = async () => {
-            const data:GiphyResponse = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=frog-fric&limit=10`)
+            const data:GiphyResponse = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=frog-fric&limit=12`)
             .then(res=> res.json());
             setGifs(data.data);
   };

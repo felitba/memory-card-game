@@ -20,6 +20,9 @@ body{
     background-color:white;
     height: 50vh;
     width: 100vh;
+    /* width: 100%;
+    max-width: 720px; */
+    /* width: min(90vw, 600px); */
 }
 
 .WelcomeSign button{
