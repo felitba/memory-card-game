@@ -4,7 +4,7 @@ import "../styles/styles.css"
 
 import { useState,useEffect,useRef } from "react";
 import { shuffle } from "../utils/shuffle";
-
+import {playSound} from "../utils/sound";
 
 type Gif = {
   id: string;
@@ -45,6 +45,7 @@ function CardList(){
     },[score]);
 
     const handleClick= (gifId:string)=> {
+        playSound();
         setGifs(shuffle(gifs));
         if (!gifSet.current.has(gifId)){
             setScore(s=> s+1);
