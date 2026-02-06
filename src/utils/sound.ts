@@ -1,10 +1,21 @@
 import { Howl } from "howler";
 
-const click = new Howl({
+const frogClick = new Howl({
   src: ["/frogSound.mp3"],
   volume: 0.5,
 });
 
+const bgm = new Howl({
+  src: ["/bgm.mp3"],
+  volume: 0.5,
+  loop:true
+})
+
 export function playSound(){
-  click.play();
+  frogClick.play();
 }
+
+export function playBGM(){
+  bgm.play();
+}
+
