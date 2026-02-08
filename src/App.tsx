@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import WelcomeSign from "./components/WelcomeSign"
 import CardList from './components/CardList';
 import "./styles/styles.css";
-import {playBGM} from "./utils/sound";
+import {toggleBGM} from "./utils/sound";
 import { getRandomGif } from './utils/randomDancingGif';
 
 function App() {
 
   const [startGame, setStartGame] = useState(false);
+  const [isMute,setIsMute] = useState(true);
   const [gif, setGif] = useState(getRandomGif());
 
     useEffect(() => {
@@ -18,6 +19,11 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
+  const handleClick = ()=>{
+    toggleBGM();
+    setIsMute(prev=>!prev);
+  }
+
   return (
     <>
     {startGame? (
@@ -25,7 +31,7 @@ function App() {
     ):(
       <div>
         <div className='controls'>
-        <button onClick={playBGM}><img src="/speaker.png" alt='speaker' className='speaker'/></button>
+          <button onClick={handleClick}><img src={isMute ? "/muteSpeaker.png" : "/speaker.png"} alt='speaker' className='speaker' draggable={false}/></button>
         </div>
         <div className="WelcomeSignWrapper">
           <WelcomeSign handleClick={()=> {setStartGame(true)}}/>

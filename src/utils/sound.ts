@@ -15,7 +15,14 @@ export function playSound(){
   frogClick.play();
 }
 
-export function playBGM(){
+//note: Never ever use mute again... pls read the documentation carefully. 
+// mute keeps running on the background, just silent.
+//  while pause saves the progress.
+export function toggleBGM(){
+  if (bgm.playing()) {
+  bgm.pause();
+  } else {
   bgm.play();
+  }
 }
 

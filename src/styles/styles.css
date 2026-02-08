@@ -25,19 +25,23 @@ body{
     /* width: min(90vw, 600px); */
 }
 
-.WelcomeSign button{
+button{
     cursor: pointer;
     font-size: 2rem;
     font-family:'Courier New', Courier, monospace;
     border: 1px solid hsl(120, 100%, 45%);
     background-color: hsl(120, 100%, 80%);
-    width: 100%;
+    width: auto;
     max-width: 300px;
     border-radius: 5px;
     margin-top: 25px;
 }
 
-.WelcomeSign button:hover{
+.WelcomeSign button{
+    width: 100%;
+}
+
+button:hover{
     background-color: hsl(120, 100%, 50%);
 }
 
