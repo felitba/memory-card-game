@@ -1,19 +1,25 @@
 import "../styles/styles.css"
 
 type HeaderProps={
+    handleClick: ()=> void;
+    isMute: boolean;
     score: number;
     bestScore: number;
+    startGame: boolean;
 }
 
-function Header({score,bestScore}:HeaderProps){
+function Header({handleClick,isMute,score, bestScore, startGame}:HeaderProps){
     return (
         <div className="Header">
             <div>
-                <h1>Score: {score}</h1>
-                <h1>Best Score: {bestScore} </h1>
+                {startGame && (<>
+                        <h2>Score: {score}</h2>
+                        <h2>Best Score: {bestScore}</h2>
+                        </>)}
+
             </div>
-            <div className="Header-title">
-            <h1>Memory Game</h1>
+            <div className='controls'>
+                <button onClick={handleClick}><img src={isMute ? "/muteSpeaker.png" : "/speaker.png"} alt='speaker' className='speaker' draggable={false}/></button>
             </div>
         </div>
     );

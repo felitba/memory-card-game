@@ -4,12 +4,17 @@ import CardList from './components/CardList';
 import "./styles/styles.css";
 import {toggleBGM} from "./utils/sound";
 import { getRandomGif } from './utils/randomDancingGif';
+import Header from './components/Header';
 
 function App() {
 
   const [startGame, setStartGame] = useState(false);
   const [isMute,setIsMute] = useState(true);
   const [gif, setGif] = useState(getRandomGif());
+
+  const [score, setScore] = useState<number>(0);
+  const [bestScore, setBestScore] = useState<number>(0);
+
 
     useEffect(() => {
     const interval = setInterval(() => {
@@ -19,20 +24,18 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-  const handleClick = ()=>{
+  const handleClickMusic = ()=>{
     toggleBGM();
     setIsMute(prev=>!prev);
   }
 
   return (
     <>
+    <Header startGame={startGame} score={score} bestScore={bestScore} handleClick={handleClickMusic} isMute={isMute}/>
     {startGame? (
-      <CardList/>
+      <CardList score={score} setBestScore={setBestScore} setScore={setScore} bestScore={bestScore}/>
     ):(
       <div>
-        <div className='controls'>
-          <button onClick={handleClick}><img src={isMute ? "/muteSpeaker.png" : "/speaker.png"} alt='speaker' className='speaker' draggable={false}/></button>
-        </div>
         <div className="WelcomeSignWrapper">
           <WelcomeSign handleClick={()=> {setStartGame(true)}}/>
         </div>

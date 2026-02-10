@@ -1,10 +1,10 @@
-import Header from "./Header";
 import Card from "./Card";
 import "../styles/styles.css"
 
-import { useState,useEffect,useRef } from "react";
+import { useState,useEffect, useRef} from "react";
 import { shuffle } from "../utils/shuffle";
 import {playSound} from "../utils/sound";
+
 
 type Gif = {
   id: string;
@@ -20,14 +20,20 @@ type GiphyResponse = {
   data: Gif[];
 };
 
+type CardListProp ={
+    score: number;
+    bestScore:number;
+    setScore: React.Dispatch<React.SetStateAction<number>>;
+    setBestScore: React.Dispatch<React.SetStateAction<number>>;
+}
 
-function CardList(){
+
+function CardList({ score, setScore, bestScore, setBestScore }:CardListProp){
 
     const API_KEY = "2u23y0WAD7WHXY7dvSCdehA6sy8cSRA3";
     const [gifs, setGifs] = useState<Gif[]>([]);
-    const [score, setScore] = useState<number>(0);
-    const [bestScore, setBestScore] = useState<number>(0);
     const gifSet = useRef(new Set<string>());
+
 
    useEffect(() => {
         const loadGifs = async () => {
@@ -38,11 +44,13 @@ function CardList(){
         loadGifs();
 }, []);
 
+
     useEffect(()=>{
         if(score> bestScore){
             setBestScore(score);
         }
     },[score]);
+
 
     const handleClick= (gifId:string)=> {
         playSound();
@@ -57,13 +65,13 @@ function CardList(){
             }
     };
 
+
     const cardItems = gifs.map(gif=>{
         return <Card key = {gif.id} receivedGif={gif} handleClick = {()=>handleClick(gif.id)}/>
     })
 
     return (
         <>
-        <Header score={score} bestScore={bestScore}/>
         <div className="card-list">
             {cardItems}
         </div>

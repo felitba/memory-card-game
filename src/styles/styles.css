@@ -7,7 +7,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center; 
-    height: 75vh;
+    height: 60vh;
 }
 
 .WelcomeSign{
@@ -20,9 +20,6 @@ body{
     background-color:white;
     height: 60vh;
     width: 120vh;
-    /* width: 100%;
-    max-width: 720px; */
-    /* width: min(90vw, 600px); */
 }
 
 button{
@@ -49,6 +46,10 @@ h1{
     font-size: 4rem;
 }
 
+h2{
+    font-size: 2rem;
+}
+
 label{
     font-size: 1.5rem;
 }
@@ -57,10 +58,6 @@ label{
     flex-direction: row;
     display: flex;
     justify-content: space-between;
-}
-
-.Header-title{
-    padding: 20px;
 }
 
 .card-list{
@@ -85,7 +82,15 @@ label{
 .controls{
     display: flex;
     justify-content: end;
+    margin-bottom: 50px;
+    margin-right: 25px;
 }
+
+.controls button{
+    width: 50px;
+    height: 50px;
+}
+
 .speaker{
     width: 40px;
 }
@@ -95,7 +100,7 @@ label{
     flex-direction: row;
     justify-content: space-between;
     align-items: end;
-    margin-top: 25px;
+    margin-top: 50px;
 }
 .corner-gif{
    width: 125px;
