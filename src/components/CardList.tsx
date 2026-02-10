@@ -4,6 +4,7 @@ import "../styles/styles.css"
 import { useState,useEffect, useRef} from "react";
 import { shuffle } from "../utils/shuffle";
 import {playSound} from "../utils/sound";
+import { GameState } from "../App";
 
 
 type Gif = {
@@ -25,10 +26,11 @@ type CardListProp ={
     bestScore:number;
     setScore: React.Dispatch<React.SetStateAction<number>>;
     setBestScore: React.Dispatch<React.SetStateAction<number>>;
+    setGameState: React.Dispatch<React.SetStateAction<GameState>>;
 }
 
 
-function CardList({ score, setScore, bestScore, setBestScore }:CardListProp){
+function CardList({ score, setScore, bestScore, setBestScore, setGameState }:CardListProp){
 
     const API_KEY = "2u23y0WAD7WHXY7dvSCdehA6sy8cSRA3";
     const [gifs, setGifs] = useState<Gif[]>([]);
@@ -53,16 +55,20 @@ function CardList({ score, setScore, bestScore, setBestScore }:CardListProp){
 
 
     const handleClick= (gifId:string)=> {
-        playSound();
+        playSound(); //TODO: play this sound only when user turned on the speaker
         setGifs(shuffle(gifs));
-        if (!gifSet.current.has(gifId)){
+        if(gifSet.current.size==gifs.length){
+            setGameState("win");
+        }
+        else if (!gifSet.current.has(gifId)){
             setScore(s=> s+1);
             gifSet.current.add(gifId);
         } 
-            else {
-                setScore(0);
-                gifSet.current.clear();
-            }
+        else {
+            setScore(0);
+            gifSet.current.clear();
+            setGameState("lost");
+        }
     };
 
 
