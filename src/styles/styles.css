@@ -92,7 +92,9 @@ label{
 }
 
 .speaker{
-    width: 40px;
+    width: 35px;
+    align-items: center;
+    display: flex;
 }
 
 .corner-gifs{
