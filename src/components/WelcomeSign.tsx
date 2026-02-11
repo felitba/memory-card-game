@@ -7,7 +7,7 @@ type WelcomeSignProps = {
 function WelcomeSign({handleClick}:WelcomeSignProps){
 
     return (
-        <div className='WelcomeSign'>
+        <div className='WelcomeSign Sign'>
             <h1>Fric-Frog Memory Game</h1>
             <label>The rule is simple.</label><br></br>
             <label>Win by clicking all the images <b>ONLY ONCE.</b></label><br></br>

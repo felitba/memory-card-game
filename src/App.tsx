@@ -20,13 +20,14 @@ function App() {
   const [bestScore, setBestScore] = useState<number>(0);
 
   const [gameState, setGameState] = useState<GameState>("playing");
+  const [level, setLevel] = useState<number>(1);
 
-    useEffect(() => {
-    const interval = setInterval(() => {
-      setGif(getRandomGif());
-    }, 2000);
+  useEffect(() => {
+  const interval = setInterval(() => {
+    setGif(getRandomGif());
+  }, 2000);
 
-    return () => clearInterval(interval);
+  return () => clearInterval(interval);
   }, []);
 
   const handleClickMusic = ()=>{
@@ -34,13 +35,25 @@ function App() {
     setIsMute(prev=>!prev);
   }
 
+  const handleRetryClick = ()=>{
+    setGameState("playing");
+    setScore(0);
+  }
+
+  const handleNextLevelClick = ()=>{
+    setLevel(prev=>prev+1);
+    setGameState("playing");
+    setScore(0);
+  }
+
+  // TODO: move the files to assets.
   return (
     <>
       <Header startGame={startGame} score={score} bestScore={bestScore} handleClick={handleClickMusic} isMute={isMute}/>
       {startGame? ( 
         <>
-        {gameState!="playing" && <LossWinSign/>}
-        <CardList score={score} setBestScore={setBestScore} setScore={setScore} bestScore={bestScore} setGameState={setGameState}/>
+        {gameState!="playing" && <LossWinSign gameState={gameState} level={level} onClick={gameState=="lost"? handleRetryClick: handleNextLevelClick}/>}
+        <CardList score={score} setBestScore={setBestScore} setScore={setScore} bestScore={bestScore} setGameState={setGameState} level={level}/>
         </>
       ):(
         <div>

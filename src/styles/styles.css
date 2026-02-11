@@ -12,10 +12,14 @@ body{
     display: flex;
     align-items: center;
     justify-content: center; 
-    /* height: 60vh; */
 }
 
 .WelcomeSign{
+    height: 60vh;
+    width: 120vh;
+}
+
+.Sign{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,8 +27,11 @@ body{
     border: 2px solid hsl(120, 100%, 35%);
     border-radius: 25px;
     background-color:white;
-    height: 60vh;
-    width: 120vh;
+}
+
+.LossWinSign{
+
+    /* padding: 10px 10px 10px 10px; */
 }
 
 button{
@@ -37,6 +44,7 @@ button{
     max-width: 300px;
     border-radius: 5px;
     margin-top: 25px;
+    margin-bottom: 25px;
 }
 
 .WelcomeSign button{
@@ -119,6 +127,7 @@ label{
     inset: 0;
     z-index: 999;
     height: 100vh;
+    margin:0;
 
     display: flex;
     align-items: center;

@@ -27,10 +27,11 @@ type CardListProp ={
     setScore: React.Dispatch<React.SetStateAction<number>>;
     setBestScore: React.Dispatch<React.SetStateAction<number>>;
     setGameState: React.Dispatch<React.SetStateAction<GameState>>;
+    level: number;
 }
 
 
-function CardList({ score, setScore, bestScore, setBestScore, setGameState }:CardListProp){
+function CardList({ score, setScore, bestScore, setBestScore, setGameState,level }:CardListProp){
 
     const API_KEY = "2u23y0WAD7WHXY7dvSCdehA6sy8cSRA3";
     const [gifs, setGifs] = useState<Gif[]>([]);
@@ -39,12 +40,12 @@ function CardList({ score, setScore, bestScore, setBestScore, setGameState }:Car
 
    useEffect(() => {
         const loadGifs = async () => {
-            const data:GiphyResponse = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=frog-fric&limit=12`)
+            const data:GiphyResponse = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=frog-fric&limit=${level*4}`)
             .then(res=> res.json());
             setGifs(data.data);
   };
         loadGifs();
-}, []);
+}, [level]);
 
 
     useEffect(()=>{
@@ -57,15 +58,22 @@ function CardList({ score, setScore, bestScore, setBestScore, setGameState }:Car
     const handleClick= (gifId:string)=> {
         playSound(); //TODO: play this sound only when user turned on the speaker
         setGifs(shuffle(gifs));
-        if(gifSet.current.size==gifs.length){
-            setGameState("win");
-        }
-        else if (!gifSet.current.has(gifId)){
+    
+        //If implementation were like this: 
+        // there would be a race condition.
+        // Depending on who ran first, score can be set to 0 or 4*level. 
+        //Solution: use an useEffect in App(when gamestate is win... do...) or setScore in HandleClick func.
+        if (!gifSet.current.has(gifId)){
             setScore(s=> s+1);
             gifSet.current.add(gifId);
+            if(gifSet.current.size==gifs.length){
+                gifSet.current.clear();
+                setGameState("win");
+                // setScore(0);
+            }
         } 
         else {
-            setScore(0);
+            // setScore(0);
             gifSet.current.clear();
             setGameState("lost");
         }
