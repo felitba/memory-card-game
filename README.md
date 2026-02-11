@@ -1,21 +1,28 @@
-# React + TypeScript + Vite
+# Fric-Frog Memory Game 🐸
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Fric-Frog is a browser-based memory game built with **React, Vite, and TypeScript**.  
+Originally developed as a learning project to deepen my understanding of modern React patterns, it quickly evolved into a polished and enjoyable interactive experience.
 
-While this project uses React, Vite supports many popular JS frameworks. [See all the supported frameworks](https://vitejs.dev/guide/#scaffolding-your-first-vite-project).
+The game challenges players to test their memory by selecting unique cards without repeating previous choices. As the score increases, so does the difficulty.
 
-## Deploy Your Own
+## 🚀 Live Demo
+Play the game here:  
+https://fric-frog-game.vercel.app/
 
-Deploy your own Vite project with Vercel.
+No installation is required — any modern web browser is enough to run the application.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/examples/tree/main/framework-boilerplates/vite-react&template=vite-react)
+## 🛠️ Tech Stack
+- React
+- TypeScript
+- Vite
+- CSS
 
-_Live Example: https://vite-react-example.vercel.app_
+## 🎯 Project Goals
+- Strengthen React fundamentals (hooks, state management, component architecture)
+- Practice TypeScript in a real-world project
+- Improve UI responsiveness and user experience
+- Understand deployment workflows with Vercel
 
-### Deploying From Your Terminal
-
-You can deploy your new Vite project with a single command from your terminal using [Vercel CLI](https://vercel.com/download):
-
-```shell
-$ vercel
-```
+## 📌 Future Improvements
+- Animations and visual feedback
+- Mobile optimization
