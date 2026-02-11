@@ -1,4 +1,6 @@
 import "../styles/styles.css"
+import muteSpeaker from "../assets/muteSpeaker.png";
+import speaker from "../assets/speaker.png";
 
 type HeaderProps={
     handleClick: ()=> void;
@@ -19,7 +21,7 @@ function Header({handleClick,isMute,score, bestScore, startGame}:HeaderProps){
 
             </div>
             <div className='controls'>
-                <button onClick={handleClick}><img src={isMute ? "/muteSpeaker.png" : "/speaker.png"} alt='speaker' className='speaker' draggable={false}/></button>
+                <button onClick={handleClick}><img src={isMute ? muteSpeaker : speaker} alt='speaker' className='speaker' draggable={false}/></button>
             </div>
         </div>
     );

@@ -1,12 +1,14 @@
 import { Howl } from "howler";
+import frogSound from "../assets/frogSound.mp3"
+import bgmSound from "../assets/bgm.mp3"
 
 const frogClick = new Howl({
-  src: ["/frogSound.mp3"],
+  src: [frogSound],
   volume: 0.5,
 });
 
 const bgm = new Howl({
-  src: ["/bgm.mp3"],
+  src: [bgmSound],
   volume: 0.5,
   loop:true
 })

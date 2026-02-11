@@ -29,11 +29,6 @@ body{
     background-color:white;
 }
 
-.LossWinSign{
-
-    /* padding: 10px 10px 10px 10px; */
-}
-
 button{
     cursor: pointer;
     font-size: 2rem;

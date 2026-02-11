@@ -33,6 +33,7 @@ type CardListProp ={
 
 function CardList({ score, setScore, bestScore, setBestScore, setGameState,level }:CardListProp){
 
+    //TODO: hide this
     const API_KEY = "2u23y0WAD7WHXY7dvSCdehA6sy8cSRA3";
     const [gifs, setGifs] = useState<Gif[]>([]);
     const gifSet = useRef(new Set<string>());
