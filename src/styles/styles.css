@@ -15,9 +15,14 @@ body{
 }
 
 .WelcomeSign{
+    width: 1000px;
+    height: 500px;
+}
+
+/* .WelcomeSign{
     height: 60vh;
     width: 120vh;
-}
+} */
 
 .Sign{
     display: flex;
