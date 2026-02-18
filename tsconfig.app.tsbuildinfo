@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/api/gifs/search.ts","./src/components/card.tsx","./src/components/cardlist.tsx","./src/components/header.tsx","./src/components/losswinsign.tsx","./src/components/welcomesign.tsx","./src/utils/randomdancinggif.ts","./src/utils/shuffle.ts","./src/utils/sound.ts"],"version":"5.9.3"}

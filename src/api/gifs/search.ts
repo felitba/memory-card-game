@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+export default async function handler(req:any, res:any) {
   const { q, limit = 4 } = req.query;
 
   const url = `https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_KEY}&q=${q}&limit=${limit}`;
