@@ -41,7 +41,7 @@ function CardList({ score, setScore, bestScore, setBestScore, setGameState,level
 
    useEffect(() => {
         const loadGifs = async () => {
-            const url = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=frog-fric&limit=${level * 4}`;
+            const url =`/api/giphy?q=frog-fric&limit=${level * 4}`;
 
             const data:GiphyResponse = await fetch(url)
             .then(res=> res.json());
